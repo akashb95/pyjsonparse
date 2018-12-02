@@ -1,0 +1,10 @@
+{
+    "list": [1e-5, 1.45456545756E2005, -1, -1000, 10, 120],
+    "nested_list": [[1, 2, 3],
+                    ["string", "potato"],
+                    [{"some": {"nested":
+                                {"very_nested": "object"}}},
+                                [[[["\b\r\t\f\n\a4-times nested!!!"]]]]
+                    ]
+    ]
+}

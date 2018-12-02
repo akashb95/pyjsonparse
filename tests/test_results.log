@@ -1,0 +1,170 @@
+******** Running Tests *********** 
+
+
+------test1.json INPUT------
+{
+        "glossary": {
+            "title": "example glossary",
+            "GlossDiv": {
+                "title": "S",
+                "GlossList": {
+                    "GlossEntry": {
+                        "ID": "SGML",
+                        "SortAs": "SGML",
+                        "GlossTerm": "Standard \"Generalized\" Markup Language",
+                        "Acronym": "SGML",
+                        "Abbrev": "ISO 8879:1986",
+                        "GlossDef": {
+                            "para": "A meta-\"markup\" language, used to create markup languages such as DocBook.",
+                            "GlossSeeAlso": [3, 2340]
+                        },
+                        "GlossSee": "markup"
+                    }
+                }
+            }
+        }
+    }
+
+
+-------RESULTS------
+Valid JSON.
+
+------test2.json INPUT------
+{"goodKey": "validString",
+    badKey: "validString"}
+
+
+-------RESULTS------
+Illegal character 'b' on line 23 near position 31.
+Invalid JSON.
+
+
+------test3.json INPUT------
+
+
+
+-------RESULTS------
+You seem to have an unclosed object.
+Invalid JSON.
+
+
+------test4.json INPUT------
+{
+    "list": [1e-5, 1.45456545756E2005, -1, -1000, 10, 120],
+    "nested_list": [[1, 2, 3],
+                    ["string", "potato"],
+                    [{"some": {"nested":
+                                {"very_nested": "object"}}},
+                                [[[["\b\r\t\f\n\a4-times nested!!!"]]]]
+                    ]
+    ]
+}
+
+
+-------RESULTS------
+Valid JSON.
+
+------test5.json INPUT------
+["what... we need an object!! Arrays are overrated!"]
+
+
+-------RESULTS------
+Error on line 32 near position 0 (token: '[').
+Invalid JSON.
+
+
+------test6.json INPUT------
+{"testing": badValue}
+
+
+-------RESULTS------
+Illegal character 'b' on line 32 near position 12.
+Invalid JSON.
+
+
+------test7.json INPUT------
+{"testing": "unclosedString}
+
+
+-------RESULTS------
+Illegal character '"' on line 32 near position 12.
+Invalid JSON.
+
+
+------test8.json INPUT------
+{"testing": ["unclosedArray", 1, 2}
+
+
+-------RESULTS------
+Error on line 32 near position 34 (token: '}').
+Invalid JSON.
+
+
+------test9.json INPUT------
+{"testing": "unclosedObject"
+
+
+-------RESULTS------
+You seem to have an unclosed array.
+Invalid JSON.
+
+
+------test10.json INPUT------
+{
+  "liftedFrom": "https://en.wikipedia.org/wiki/JSON#JSON_sample",
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021"
+  },
+  "phoneNumber": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "fax",
+      "number": "646 555-4567"
+    }
+  ],
+  "gender": {
+    "type": "male"
+  }
+}
+
+
+-------RESULTS------
+Valid JSON.
+
+------test11.json INPUT------
+{"trailingCommas": "theyWork",
+"lists": [1, 2, 3,],
+"emptyLists": [], "emptyObjects": {},}
+
+
+
+-------RESULTS------
+Valid JSON.
+
+------test12.json INPUT------
+{,}
+
+
+-------RESULTS------
+Error on line 59 near position 1 (token: ',').
+Invalid JSON.
+
+
+------test13.json INPUT------
+{"pointlessArray": [,]}
+
+
+-------RESULTS------
+Error on line 59 near position 20 (token: ',').
+Invalid JSON.
+
+
