@@ -26,6 +26,7 @@
     }
 
 
+
 -------RESULTS------
 Valid JSON.
 
@@ -35,7 +36,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Illegal character 'b' on line 23 near position 31.
+Illegal character 'b' on line 24 near position 31.
 Invalid JSON.
 
 
@@ -69,7 +70,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Error on line 32 near position 0 (token: '[').
+Error on line 33 near position 0 (token: '[').
 Invalid JSON.
 
 
@@ -78,7 +79,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Illegal character 'b' on line 32 near position 12.
+Illegal character 'b' on line 33 near position 12.
 Invalid JSON.
 
 
@@ -87,7 +88,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Illegal character '"' on line 32 near position 12.
+Illegal character '"' on line 33 near position 12.
 Invalid JSON.
 
 
@@ -96,7 +97,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 32 near position 34 (token: '}').
+Error on line 33 near position 34 (token: '}').
 Invalid JSON.
 
 
@@ -141,9 +142,9 @@ Invalid JSON.
 Valid JSON.
 
 ------test11.json INPUT------
-{"trailingCommas": "theyWork",
-"lists": [1, 2, 3,],
-"emptyLists": [], "emptyObjects": {},}
+{"nullValue": null,
+"lists": [1, 2, 3, true, false, null],
+"emptyLists": [], "booleanTrue": true, "booleanFalse": false, "emptyObjects": {}}
 
 
 
@@ -155,7 +156,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Error on line 59 near position 1 (token: ',').
+Error on line 60 near position 1 (token: ',').
 Invalid JSON.
 
 
@@ -164,7 +165,35 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 59 near position 20 (token: ',').
+Error on line 60 near position 20 (token: ',').
+Invalid JSON.
+
+
+------test14.json INPUT------
+{"yat": "Yet another test","trailingCommas":  "they don't work",}
+
+
+-------RESULTS------
+Error on line 60 near position 64 (token: '}').
+Invalid JSON.
+
+
+------test15.json INPUT------
+{"arrayWithTrailingCommas":  ["also doesn't work", false,]}
+
+
+-------RESULTS------
+Error on line 60 near position 57 (token: ']').
+Invalid JSON.
+
+
+------test16.json INPUT------
+{"moreThanOneObjectAllowed":  false}
+{"youWillNeverGetHere": true}
+
+
+-------RESULTS------
+Error on line 61 near position 37 (token: '{').
 Invalid JSON.
 
 
