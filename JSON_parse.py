@@ -34,11 +34,16 @@ class JSONParser:
 
     def p_pairs(self, p):
         """
-        pairs : STRING COLON value COMMA pairs
-              | STRING COLON value
+        pairs : pair
               | empty
         """
         return
+
+    def p_pair(self, p):
+        """
+        pair : STRING COLON value COMMA pair
+             | STRING COLON value
+        """
 
     def p_array(self, p):
         """
@@ -48,11 +53,16 @@ class JSONParser:
 
     def p_items(self, p):
         """
-        items : value COMMA items
-              | value
+        items : item
               | empty
         """
         return
+
+    def p_item(self, p):
+        """
+        item : value COMMA item
+             | value
+        """
 
     def p_empty(self, p):
         """
