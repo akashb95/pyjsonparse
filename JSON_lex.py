@@ -28,7 +28,7 @@ class JSONLexer(object):
 
     t_NUMBER = r'(-?)(0|[1-9][0-9]*)(\.[0-9]*)?([eE][+\-]?[0-9]*)?'
 
-    t_STRING = r'''"(\\[bfrnt"/\\]|[^\"\u0000-\u001F\u007F-\u009F])*"'''
+    t_STRING = r'''"(\\[bfrnt"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'''
 
     # commas used to separate items in both objects and arrays
     t_COMMA = r','
@@ -123,3 +123,9 @@ class JSONLexer(object):
             print(tok.type, tok.value, tok.lexpos)
 
         return
+
+
+if __name__ == "__main__":
+    l = JSONLexer()
+    l.build()
+    l.test(r'"\u007F"')
