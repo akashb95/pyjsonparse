@@ -11,8 +11,6 @@ def run(num_tests):
     :param num_tests: test file number to iterate up to.
     :return:
     """
-    # make parser instance
-    parser = JSONParser()
 
     # input log file path
     log_fname = "test_results.log"
@@ -41,6 +39,9 @@ def run(num_tests):
                 f.write("------{name} INPUT------\n".format(name=test_fname))
                 f.write(inp)
                 f.write("\n\n\n-------RESULTS------\n")
+
+            # make parser instance
+            parser = JSONParser()
 
             # parse the input and output to logfile whether valid or invalid, plus any errors raised.
             try:
