@@ -36,7 +36,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Illegal character 'b' on line 24 near position 31.
+Illegal character 'b' on line 2 near position 31.
 Invalid JSON.
 
 
@@ -45,7 +45,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-You seem to have an unclosed object.
+There's something wrong...
 Invalid JSON.
 
 
@@ -56,7 +56,7 @@ Invalid JSON.
                     ["string", "potato"],
                     [{"some": {"nested":
                                 {"very_nested": "object"}}},
-                                [[[["\b\r\t\f\n\a4-times nested!!!"]]]]
+                                [[[["\b\r\t\f\n\\a4-times nested!!!"]]]]
                     ]
     ]
 }
@@ -70,7 +70,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Error on line 33 near position 0 (token: '[').
+Error on line 1 near position 0 (token: '[').
 Invalid JSON.
 
 
@@ -79,7 +79,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Illegal character 'b' on line 33 near position 12.
+Illegal character 'b' on line 1 near position 12.
 Invalid JSON.
 
 
@@ -88,7 +88,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Illegal character '"' on line 33 near position 12.
+Illegal character '"' on line 1 near position 12.
 Invalid JSON.
 
 
@@ -97,7 +97,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 33 near position 34 (token: '}').
+Error on line 1 near position 34 (token: '}').
 Invalid JSON.
 
 
@@ -106,13 +106,13 @@ Invalid JSON.
 
 
 -------RESULTS------
-You seem to have an unclosed array.
+You seem to have an unclosed object.
 Invalid JSON.
 
 
 ------test10.json INPUT------
 {
-  "liftedFrom": "https://en.wikipedia.org/wiki/JSON#JSON_sample",
+  "liftedF\"rom": "https://en.wikipedia.org/wiki/JSON#JSON_sample",
   "firstName": "John",
   "lastName": "Smith",
   "age": 25,
@@ -134,7 +134,8 @@ Invalid JSON.
   ],
   "gender": {
     "type": "male"
-  }
+  },
+  "catchphrase": "大固府帯貿函活勤鵡経土来。 सभी मनुष्यों को गौरव और अधिकारों के विषय में जन्मजात स्वतन्त्रता और समानता प्राप्त हैं। उन्हें बुद्धि और"
 }
 
 
@@ -156,7 +157,7 @@ Valid JSON.
 
 
 -------RESULTS------
-Error on line 60 near position 1 (token: ',').
+Error on line 1 near position 1 (token: ',').
 Invalid JSON.
 
 
@@ -165,7 +166,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 60 near position 20 (token: ',').
+Error on line 1 near position 20 (token: ',').
 Invalid JSON.
 
 
@@ -174,7 +175,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 60 near position 64 (token: '}').
+Error on line 1 near position 64 (token: '}').
 Invalid JSON.
 
 
@@ -183,7 +184,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 60 near position 57 (token: ']').
+Error on line 1 near position 57 (token: ']').
 Invalid JSON.
 
 
@@ -193,7 +194,7 @@ Invalid JSON.
 
 
 -------RESULTS------
-Error on line 61 near position 37 (token: '{').
+Error on line 2 near position 37 (token: '{').
 Invalid JSON.
 
 
