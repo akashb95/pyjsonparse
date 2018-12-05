@@ -28,7 +28,8 @@ class JSONLexer(object):
 
     t_NUMBER = r'(-?)(0|[1-9][0-9]*)(\.[0-9]*)?([eE][+\-]?[0-9]*)?'
 
-    t_STRING = r'''"(\\[bfrnt"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'''
+    # string - escaped chars and all but unicode control characters
+    t_STRING = r'"(\\[bfrnt"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'
 
     # commas used to separate items in both objects and arrays
     t_COMMA = r','
@@ -37,7 +38,7 @@ class JSONLexer(object):
     t_COLON = r':'
 
     # ignore all whitespaces
-    t_ignore = '\t '
+    t_ignore = '\t\r '
 
     def __init__(self):
         self.lexer = None
