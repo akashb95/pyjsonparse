@@ -29,7 +29,7 @@ class JSONLexer(object):
     t_NUMBER = r'(-?)(0|[1-9][0-9]*)(\.[0-9]*)?([eE][+\-]?[0-9]*)?'
 
     # string - escaped chars and all but unicode control characters
-    t_STRING = r'"(\\[bfrnt"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'
+    t_STRING = r'"(\\[bfrntu"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'
 
     # commas used to separate items in both objects and arrays
     t_COMMA = r','
@@ -50,6 +50,8 @@ class JSONLexer(object):
         self.object_depth = 0
 
         self.last_token = None
+
+        self.line_pos = 0
         return
 
     @TOKEN(lbrace)
@@ -75,12 +77,13 @@ class JSONLexer(object):
     def t_NEWLINE(self, t):
         r"""\n+"""
         t.lexer.lineno += t.value.count("\n")
+        self.line_pos = 0
         return
 
     def t_error(self, t):
         # if there's a token we don't expect, raise the error - JSON is invalid.
         raise SyntaxError("Illegal character '{s}' on line {line} near position {pos}."
-                          .format(s=t.value[0], line=t.lexer.lineno, pos=str(t.lexer.lexpos)))
+                          .format(s=t.value[0], line=t.lexer.lineno, pos=t.lexer.lexpos))
         # t.lexer.skip(1)
 
     def build(self, **kwargs):

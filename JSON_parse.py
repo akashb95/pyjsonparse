@@ -74,7 +74,7 @@ class JSONParser:
         # raising errors - JSON invalid
         if p:
             raise SyntaxError("Error on line {line} near position {pos} (token: '{tok}')."
-                              .format(line=p.lineno, pos=str(p.lexpos), tok=p.value))
+                              .format(line=p.lineno, pos=p.lexpos, tok=p.value))
 
         # if end of stream reached, then maybe a bracket is missing?
         else:
