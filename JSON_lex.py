@@ -29,7 +29,7 @@ class JSONLexer(object):
     t_NUMBER = r'(-?)(0|[1-9][0-9]*)(\.[0-9]*)?([eE][+\-]?[0-9]*)?'
 
     # string - escaped chars and all but unicode control characters
-    t_STRING = r'"(\\[bfrntu"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F])*"'
+    t_STRING = r'"(\\[bfrnt"/\\]|[^\u0022\u005C\u0000-\u001F\u007F-\u009F]|\\u[0-9a-fA-F]{4})*"'
 
     # commas used to separate items in both objects and arrays
     t_COMMA = r','
