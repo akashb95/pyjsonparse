@@ -12,7 +12,7 @@ class JSONParser:
         self.tokens = self.json_lexer.tokens
 
         # make parser
-        self.json_parser = yacc.yacc(module=self, start="object")
+        self.json_parser = yacc.yacc(module=self, start="start")
         return
 
     def p_value(self, p):
@@ -22,6 +22,13 @@ class JSONParser:
               | BOOLEAN
               | NULL
               | object
+              | array
+        """
+        return
+
+    def p_start(self, p):
+        """
+        start : object
               | array
         """
         return
