@@ -16,7 +16,7 @@
                         "Abbrev": "ISO 8879:1986",
                         "GlossDef": {
                             "para": "A meta-\"markup\" language, used to create markup languages such as DocBook.",
-                            "GlossSeeAlso": [3, 2340]
+                            "GlossSeeAlso": [3, 2340, "\u1001"]
                         },
                         "GlossSee": "markup"
                     }
@@ -31,12 +31,12 @@
 Valid JSON.
 
 ------test2.json INPUT------
-{"goodKey": "validString",
-    badKey: "validString"}
+{"goodKey": "v\u1001alidSt\ring",
+  badKey: "validString"}
 
 
 -------RESULTS------
-Illegal character 'b' on line 2 near position 31.
+Illegal character 'b' on line 2 near position 36.
 Invalid JSON.
 
 
@@ -66,13 +66,11 @@ Invalid JSON.
 Valid JSON.
 
 ------test5.json INPUT------
-["what... we need an object!! Arrays are overrated!"]
+[{"what... we need an object!! Arrays are overrated!":  null}]
 
 
 -------RESULTS------
-Error on line 1 near position 0 (token: '[').
-Invalid JSON.
-
+Valid JSON.
 
 ------test6.json INPUT------
 {"testing": badValue}
@@ -112,7 +110,7 @@ Invalid JSON.
 
 ------test10.json INPUT------
 {
-  "liftedF\"rom": "https://en.wikipedia.org/wiki/JSON#JSON_sample",
+  "liftedFrom": "https://en.wikipedia.org/wiki/JSON#JSON_sample",
   "firstName": "John",
   "lastName": "Smith",
   "age": 25,
@@ -197,4 +195,11 @@ Invalid JSON.
 Error on line 2 near position 37 (token: '{').
 Invalid JSON.
 
+
+------test17.json INPUT------
+{"\u0001":  "potato"}
+
+
+-------RESULTS------
+Valid JSON.
 

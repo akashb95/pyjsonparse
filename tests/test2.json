@@ -1,2 +1,2 @@
-{"goodKey": "validString",
-    badKey: "validString"}
+{"goodKey": "v\u1001alidSt\ring",
+  badKey: "validString"}
