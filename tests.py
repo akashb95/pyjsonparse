@@ -3,6 +3,9 @@ import sys
 import os
 
 
+NUM_TEST_FILES = 21
+
+
 def run(num_tests):
     """
     Rather limited function that runs the parser on JSON test files that must be specifically numbered.
@@ -62,4 +65,4 @@ def run(num_tests):
 
 
 if __name__ == "__main__":
-    run(17)
+    run(NUM_TEST_FILES)
